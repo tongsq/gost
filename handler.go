@@ -42,6 +42,7 @@ type HandlerOptions struct {
 	IPs           []string
 	TCPMode       bool
 	IPRoutes      []IPRoute
+	Limiter       Limiter
 }
 
 // HandlerOption allows a common way to set handler options.
@@ -82,6 +83,13 @@ func UsersHandlerOption(users ...*url.Userinfo) HandlerOption {
 func AuthenticatorHandlerOption(au Authenticator) HandlerOption {
 	return func(opts *HandlerOptions) {
 		opts.Authenticator = au
+	}
+}
+
+// LimiterHandlerOption sets the Rate limiter option of HandlerOptions
+func LimiterHandlerOption(l Limiter) HandlerOption {
+	return func(opts *HandlerOptions) {
+		opts.Limiter = l
 	}
 }
 
