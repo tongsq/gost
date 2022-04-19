@@ -12,7 +12,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/ginuerzh/gost"
+	"github.com/tongsq/gost"
 )
 
 var (
